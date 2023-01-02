@@ -237,7 +237,7 @@ class SensorConfigRead extends ESenseEvent {
 
   SensorConfigRead() : super();
   factory SensorConfigRead.fromMap(Map<dynamic, dynamic> map) =>
-      SensorConfigRead()..config = ESenseConfig();
+      SensorConfigRead()..config = ESenseConfig.fromMap(map);
 
   @override
   String toString() => '$runtimeType - config: $config';
