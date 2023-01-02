@@ -119,7 +119,13 @@ public class ESenseEventStreamHandler implements StreamHandler, ESenseEventListe
         if (eventSink != null) {
             HashMap<String,Object> map = new HashMap<>();
             map.put("type", "SensorConfigRead");
-            // right now this event is empty, i.e. we do not serialize and send the config object across
+
+            map.put("accLowPass", config.getAccLPF().name());
+            map.put("accRange", config.getAccRange().name());
+
+            map.put("gyroLowPass", config.getGyroLPF().name());
+            map.put("gyroRange", config.getGyroRange().name());
+
             eventSink.success(map);
         }
     }
